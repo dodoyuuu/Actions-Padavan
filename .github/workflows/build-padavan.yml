@@ -29,8 +29,7 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
         #删除语言配置文件
-        cd /opt/rt-n56u/trunk/user/www/dict
-        rm -rf *
+        rm -rf /opt/rt-n56u/trunk/user/www/dict/*
         #下载语言文件
         git clone --depth=1 https://github.com/dodoyuuu/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
