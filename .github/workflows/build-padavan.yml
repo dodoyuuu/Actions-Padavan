@@ -27,11 +27,14 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev gcc-multilib
     - name: Clone source code
       run: |
+        #下载源码
         git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
-        #删除语言配置文件
+        #下载汉化文件
+        git clone --depth=1 https://github.com/dodoyuuu/rt-n56u.git /opt/rt-n56u-dict
+        #替换汉化文件
         rm -rf /opt/rt-n56u/trunk/user/www/dict/*
-        #下载语言文件
-        git clone --depth=1 https://github.com/dodoyuuu/rt-n56u.git /opt/rt-n56u
+        cp -a /opt/rt-n56u-dict/trunk/user/www/dict /opt/rt-n56u/trunk/user/www/dict
+
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
